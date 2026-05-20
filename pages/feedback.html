@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Submit feedback, report a listing error, or list your business on the Francistown Business Directory." />
+  <title>Feedback & Reviews | Francistown Business Hub</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .form-tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid var(--clr-border);
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      border: none;
+      background: none;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--clr-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .tab-btn.active {
+      color: var(--clr-accent);
+      border-bottom-color: var(--clr-accent);
+    }
+    .tab-btn:hover:not(.active) { color: var(--clr-text); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .success-banner {
+      display: none;
+      background: #d4edda;
+      border: 1px solid #b8dbc4;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      color: var(--clr-success);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-top: 20px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+    }
+    .sidebar-card h4 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    .sidebar-card p {
+      font-size: 0.83rem;
+      color: var(--clr-muted);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .contact-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.83rem;
+      color: var(--clr-text);
+    }
+    .contact-item .ci-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--clr-accent-lt);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-accent);
+      flex-shrink: 0;
+    }
+    .form-section-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 40px;
+      align-items: start;
+      padding: 56px 0 80px;
+    }
+    @media (max-width: 900px) {
+      .form-section-layout { grid-template-columns: 1fr; }
+    }
+    .rating-input {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .rating-input input[type="radio"] { display: none; }
+    .rating-input label {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--clr-border);
+      transition: color var(--transition);
+      line-height: 1;
+    }
+    .rating-input input[type="radio"]:checked ~ label,
+    .rating-input label:hover,
+    .rating-input label:hover ~ label { color: #f5a623; }
+    .rating-input { flex-direction: row-reverse; }
+    .rating-input label:hover,
+    .rating-input label:hover ~ label { color: #f5a623; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <div class="brand-logo">
+          <img src="../images/ftown-hub-logo.png" alt="Francistown Business Hub" />
+        </div>
+        <div class="brand-name">Francistown Business Hub<span>Home to all micro / macro businesses</span></div>
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="about.html">About</a>
+        <a href="list-business.html" class="navbar-cta">List Your Business</a>
+      </div>
+      <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="fb-title">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>Reviews & Feedback</span>
+      </nav>
+      <h1 id="fb-title">Reviews & Feedback</h1>
+      <p>Help us improve the hub — leave a business review, or report a listing error.</p>
+    </div>
+  </section>
+
+  <!-- MAIN FORM SECTION -->
+  <main>
+    <div class="container">
+      <div class="form-section-layout">
+
+        <!-- LEFT: FORM -->
+        <div>
+          <!-- Tabs -->
+          <div class="form-tabs" role="tablist" aria-label="Feedback type">
+            <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-review" id="btn-review"  onclick="switchTab('review')">Leave a Review</button>
+            <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-report" id="btn-report"  onclick="switchTab('report')">Report an Error</button>
+          </div>
+          <p style="font-size:0.82rem;color:var(--clr-muted);margin-bottom:24px;">
+            Want to list your business? <a href="list-business.html" style="color:var(--clr-accent);font-weight:600;">Visit our dedicated Listing page →</a>
+          </p>
+
+          <!-- ── TAB 1: REVIEW ── -->
+          <div class="tab-panel active" id="tab-review" role="tabpanel" aria-labelledby="btn-review">
+            <form id="feedback-form" novalidate aria-label="Leave a review form">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rev-fname">First Name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="rev-fname" name="firstName" class="form-control"
+                    placeholder="Tumelo" required minlength="2" maxlength="50"
+                    autocomplete="given-name" aria-required="true" />
+                  <p class="form-hint">Minimum 2 characters</p>
+                </div>
+                <div class="form-group">
+                  <label for="rev-lname">Last Name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="rev-lname" name="lastName" class="form-control"
+                    placeholder="Kgari" required minlength="2" maxlength="50"
+                    autocomplete="family-name" aria-required="true" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="rev-email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="rev-email" name="email" class="form-control"
+                  placeholder="tumelo@example.com" required
+                  autocomplete="email" aria-required="true" />
+                <p class="form-hint">We'll never share your email publicly</p>
+              </div>
+
+              <div class="form-group">
+                <label for="rev-business">Business Name <span class="req" aria-hidden="true">*</span></label>
+                <select id="rev-business" name="business" class="form-control filter-sel" required
+                  style="height:40px;width:100%;" aria-required="true">
+                  <option value="">Select a business…</option>
+                  <option>Cresta Thapama Hotel</option>
+                  <option>Choppies Hypermarket</option>
+                  <option>First National Bank Francistown</option>
+                  <option>Chicken Inn Blue Jacket</option>
+                  <option>Pick n Pay Francistown</option>
+                  <option>Marang Hotel</option>
+                  <option>Francistown Auto Spares</option>
+                  <option>Chicken Licken Francistown</option>
+                  <option>Boikago Primary Clinic</option>
+                  <option>Speedy Tyre &amp; Auto</option>
+                  <option>Standard Chartered Bank</option>
+                  <option>Nando's Francistown</option>
+                  <option>Tati Hotel</option>
+                  <option>OK Hypermarket</option>
+                  <option>Absa (Barclays) Francistown</option>
+                  <option>Kgosi Hair &amp; Beauty Salon</option>
+                  <option>Tshwaragano General Dealer</option>
+                  <option>Corner Bakery &amp; Pastries</option>
+                  <option>BW Mobile Repairs</option>
+                  <option>Tsholofelo Catering &amp; Events</option>
+                  <option>Naledi Fashion Boutique</option>
+                  <option>Motswana Print &amp; Design</option>
+                  <option>Diphala Hardware &amp; Building Supplies</option>
+                  <option>Sunrise City Pharmacy</option>
+                  <option>Garden Fresh Produce Market</option>
+                  <option>Bright Future Academy</option>
+                  <option>Kabo's Car Wash &amp; Valeting</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Your Rating <span class="req" aria-hidden="true">*</span></label>
+                <div class="rating-input" role="radiogroup" aria-label="Star rating" aria-required="true">
+                  <input type="radio" id="s5" name="rating" value="5" required /><label for="s5" title="5 stars">★</label>
+                  <input type="radio" id="s4" name="rating" value="4"         /><label for="s4" title="4 stars">★</label>
+                  <input type="radio" id="s3" name="rating" value="3"         /><label for="s3" title="3 stars">★</label>
+                  <input type="radio" id="s2" name="rating" value="2"         /><label for="s2" title="2 stars">★</label>
+                  <input type="radio" id="s1" name="rating" value="1"         /><label for="s1" title="1 star">★</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="rev-message">Your Review <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="rev-message" name="message" class="form-control"
+                  placeholder="Tell others about your experience — what did you like? What could be improved?"
+                  required minlength="20" maxlength="1000" rows="5"
+                  aria-required="true"></textarea>
+                <p class="form-hint">Minimum 20 characters · Maximum 1,000 characters</p>
+              </div>
+
+              <div class="form-group">
+                <label for="rev-visit">Date of Visit</label>
+                <input type="date" id="rev-visit" name="visitDate" class="form-control"
+                  style="height:40px;" />
+              </div>
+
+              <div id="form-success" class="success-banner" role="alert" style="display:flex">
+                ✓ &nbsp;Thank you! Your review has been submitted successfully.
+              </div>
+              <div id="form-success" class="success-banner" aria-live="polite"></div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top:8px">
+                Submit Review
+              </button>
+            </form>
+          </div>
+
+          <!-- ── TAB 2: REPORT ERROR ── -->
+          <div class="tab-panel" id="tab-report" role="tabpanel" aria-labelledby="btn-report">
+            <form id="report-form" novalidate aria-label="Report an error form" onsubmit="handleReportSubmit(event)">
+
+              <div class="form-group">
+                <label for="rpt-business">Business Name <span class="req" aria-hidden="true">*</span></label>
+                <select id="rpt-business" name="business" class="form-control filter-sel" required
+                  style="height:40px;width:100%;" aria-required="true">
+                  <option value="">Select the business with an error…</option>
+                  <option>Cresta Thapama Hotel</option>
+                  <option>Choppies Hypermarket</option>
+                  <option>First National Bank Francistown</option>
+                  <option>Chicken Inn Blue Jacket</option>
+                  <option>Pick n Pay Francistown</option>
+                  <option>Marang Hotel</option>
+                  <option>Francistown Auto Spares</option>
+                  <option>Chicken Licken Francistown</option>
+                  <option>Boikago Primary Clinic</option>
+                  <option>Speedy Tyre &amp; Auto</option>
+                  <option>Standard Chartered Bank</option>
+                  <option>Nando's Francistown</option>
+                  <option>Tati Hotel</option>
+                  <option>OK Hypermarket</option>
+                  <option>Absa (Barclays) Francistown</option>
+                  <option>Kgosi Hair &amp; Beauty Salon</option>
+                  <option>Tshwaragano General Dealer</option>
+                  <option>Corner Bakery &amp; Pastries</option>
+                  <option>BW Mobile Repairs</option>
+                  <option>Tsholofelo Catering &amp; Events</option>
+                  <option>Naledi Fashion Boutique</option>
+                  <option>Motswana Print &amp; Design</option>
+                  <option>Diphala Hardware &amp; Building Supplies</option>
+                  <option>Sunrise City Pharmacy</option>
+                  <option>Garden Fresh Produce Market</option>
+                  <option>Bright Future Academy</option>
+                  <option>Kabo's Car Wash &amp; Valeting</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="rpt-type">Type of Error <span class="req" aria-hidden="true">*</span></label>
+                <select id="rpt-type" name="errorType" class="form-control filter-sel" required
+                  style="height:40px;width:100%;" aria-required="true">
+                  <option value="">What is incorrect?</option>
+                  <option>Wrong phone number</option>
+                  <option>Wrong address</option>
+                  <option>Wrong opening hours</option>
+                  <option>Business has closed down</option>
+                  <option>Wrong category</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="rpt-detail">Correct Information <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="rpt-detail" name="details" class="form-control"
+                  placeholder="Please provide the correct details so we can update the listing."
+                  required minlength="10" rows="4" aria-required="true"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="rpt-email">Your Email (optional)</label>
+                <input type="email" id="rpt-email" name="email" class="form-control"
+                  placeholder="your@email.com — so we can follow up if needed" />
+              </div>
+
+              <div id="report-success" class="success-banner" aria-live="polite"></div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top:8px">
+                Submit Report
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: SIDEBAR -->
+        <aside aria-label="Contact information and help">
+          <div class="sidebar-card" style="margin-bottom:20px">
+            <h4>Get in Touch</h4>
+            <p>Have a question about the directory? Reach us through any of the channels below.</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="ci-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <strong style="display:block;font-size:0.78rem;color:var(--clr-muted);font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">Email</strong>
+                  info@francistown-biz.co.bw
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.19 2 2 0 0 1 3.89 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <strong style="display:block;font-size:0.78rem;color:var(--clr-muted);font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">Phone</strong>
+                  +267 700 00000
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <strong style="display:block;font-size:0.78rem;color:var(--clr-muted);font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">Location</strong>
+                  Francistown, North-East District, Botswana
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card" style="margin-bottom:20px">
+            <h4>Listing Guidelines</h4>
+            <p>To keep the directory accurate and useful:</p>
+            <ul style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Only list businesses physically located in Francistown</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Provide accurate phone numbers and hours</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Reviews must be based on genuine visits</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ No promotional or spam content</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>Response Time</h4>
+            <p>New listing requests are reviewed within <strong>3–5 business days</strong>. Error reports are usually corrected within <strong>48 hours</strong>.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><div class="footer-brand-logo"><img src="../images/ftown-hub-logo.png" alt="Francistown Business Hub" /></div>Francistown Business Hub</div>
+          <p class="footer-desc">Connecting Francistown residents with the businesses they need, every day.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="WhatsApp">W</a>
+            <a href="#" aria-label="Instagram">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="list-business.html">List a Business</a></li>
+            <li><a href="feedback.html">Leave a Review</a></li>
+            <li><a href="feedback.html">Report an Error</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <ul>
+            <li><a href="analytics.html">Analytics Reports</a></li>
+            <li><a href="directory.html">Browse Directory</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Francistown Business Hub — Home to all micro / macro businesses. 🇧🇼</span>
+        <a href="list-business.html">List your business free →</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    /* Tab switching */
+    function switchTab(name) {
+      document.querySelectorAll(".tab-btn").forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+      document.getElementById("btn-" + name).classList.add("active");
+      document.getElementById("btn-" + name).setAttribute("aria-selected", "true");
+      document.getElementById("tab-" + name).classList.add("active");
+    }
+
+    /* Listing form */
+    function handleListingSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const btn = form.querySelector("button[type=submit]");
+      btn.textContent = "Submitting…"; btn.disabled = true;
+      setTimeout(() => {
+        form.reset(); btn.textContent = "Submit Listing Request"; btn.disabled = false;
+        const el = document.getElementById("listing-success");
+        el.style.display = "flex";
+        el.textContent = "✓ Your listing request has been submitted. We'll review it within 3–5 business days.";
+        showToast("✓ Listing submitted!", "success");
+        setTimeout(() => el.style.display = "none", 6000);
+      }, 1000);
+    }
+
+    /* Report form */
+    function handleReportSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const btn = form.querySelector("button[type=submit]");
+      btn.textContent = "Submitting…"; btn.disabled = true;
+      setTimeout(() => {
+        form.reset(); btn.textContent = "Submit Report"; btn.disabled = false;
+        const el = document.getElementById("report-success");
+        el.style.display = "flex";
+        el.textContent = "✓ Error report received. We'll investigate and update the listing within 48 hours.";
+        showToast("✓ Report received!", "success");
+        setTimeout(() => el.style.display = "none", 6000);
+      }, 900);
+    }
+  </script>
+</body>
+</html>

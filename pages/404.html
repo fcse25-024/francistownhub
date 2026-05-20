@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Francistown Biz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .not-found-page {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 64px 24px;
+    }
+    .nf-inner { max-width: 480px; margin: auto; }
+    .nf-code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 15vw, 8rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--clr-accent);
+      margin-bottom: 16px;
+    }
+    .nf-inner h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .nf-inner p {
+      color: var(--clr-muted);
+      font-size: 0.92rem;
+      margin-bottom: 32px;
+    }
+    .nf-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <span class="brand-dot"></span>
+        Francistown Biz
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="about.html">About</a>
+        <a href="feedback.html" class="navbar-cta">Give Feedback</a>
+      </div>
+      <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="not-found-page" aria-labelledby="nf-title">
+    <div class="nf-inner">
+      <div class="nf-code" aria-hidden="true">404</div>
+      <h2 id="nf-title">Page not found</h2>
+      <p>
+        Sorry, the page you're looking for doesn't exist or may have been moved. Let's get you back on track.
+      </p>
+      <div class="nf-actions">
+        <a href="../index.html" class="btn btn-primary">Go to Home</a>
+        <a href="directory.html" class="btn btn-outline-dark">Browse Directory</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <span>&copy; 2026 Francistown Business Directory. Built for Botswana 🇧🇼</span>
+        <a href="feedback.html">List your business</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

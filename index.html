@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Francistown Business Hub — Home to all micro and macro businesses in Francistown, Botswana. Find trusted local businesses, services, restaurants and more." />
+  <title>Francistown Business Hub | Home to all micro / macro businesses</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-logo">
+          <img src="images/ftown-hub-logo.png" alt="Francistown Business Hub Logo" />
+        </div>
+        <div class="brand-name">
+          Francistown Business Hub
+          <span>Home to all micro / macro businesses</span>
+        </div>
+      </a>
+
+      <div class="navbar-links" id="nav-links" role="list">
+        <a href="index.html" role="listitem">Home</a>
+        <a href="pages/directory.html" role="listitem">Directory</a>
+        <a href="pages/analytics.html" role="listitem">Analytics</a>
+        <a href="pages/about.html" role="listitem">About</a>
+        <a href="pages/list-business.html" class="navbar-cta" role="listitem">List Your Business</a>
+      </div>
+
+      <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO CAROUSEL
+  ═══════════════════════════════════════ -->
+  <section class="hero-carousel-section" aria-labelledby="hero-title">
+    <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <img src="images/francistownlandscape1.png" alt="Francistown City View" />
+          <div class="carousel-caption">
+            <div class="container">
+              <div class="hero-caption-inner">
+                <h1 id="hero-title">
+                  Discover the best<br>
+                  <span>local businesses</span><br>
+                  in Francistown
+                </h1>
+                <p class="hero-desc">
+                  Your complete hub for shops, restaurants, hotels, health services, finance and more — all in one trusted directory for Botswana's second city.
+                </p>
+                <div class="hero-actions">
+                  <a href="pages/directory.html" class="btn btn-primary btn-lg">
+                    Browse Directory
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                  <a href="pages/list-business.html" class="btn btn-outline btn-lg">List Your Business</a>
+                </div>
+                <div class="hero-stats">
+                  <div>
+                    <span class="stat-val" id="stat-total">—</span>
+                    <span class="stat-lbl">Businesses</span>
+                  </div>
+                  <div>
+                    <span class="stat-val" id="stat-open">—</span>
+                    <span class="stat-lbl">Open Now</span>
+                  </div>
+                  <div>
+                    <span class="stat-val" id="stat-cats">—</span>
+                    <span class="stat-lbl">Categories</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <img src="images/francistownhighcourt.png" alt="Francistown High Court" />
+          <div class="carousel-caption">
+            <div class="container">
+              <div class="hero-caption-inner">
+                <h1>
+                  Support your<br>
+                  <span>community</span><br>
+                  businesses
+                </h1>
+                <p class="hero-desc">
+                  From micro entrepreneurs to established brands — every business in Francistown deserves visibility and every resident deserves easy access to services they need.
+                </p>
+                <div class="hero-actions">
+                  <a href="pages/directory.html" class="btn btn-primary btn-lg">Browse All Listings</a>
+                  <a href="pages/analytics.html" class="btn btn-outline btn-lg">View Analytics</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <img src="images/francistownsafari.png" alt="Francistown and Botswana" />
+          <div class="carousel-caption">
+            <div class="container">
+              <div class="hero-caption-inner">
+                <h1>
+                  Get your business<br>
+                  <span>listed today</span><br>
+                  — it's free
+                </h1>
+                <p class="hero-desc">
+                  Join hundreds of businesses already on Francistown's most comprehensive business hub. Connect with thousands of local customers daily.
+                </p>
+                <div class="hero-actions">
+                  <a href="pages/list-business.html" class="btn btn-primary btn-lg">List Your Business</a>
+                  <a href="pages/about.html" class="btn btn-outline btn-lg">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MARQUEE STRIP
+  ═══════════════════════════════════════ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Food & Drink</span>
+      <span class="marquee-item">Shopping & Retail</span>
+      <span class="marquee-item">Hotels & Lodging</span>
+      <span class="marquee-item">Health & Wellness</span>
+      <span class="marquee-item">Finance & Banking</span>
+      <span class="marquee-item">Automotive Services</span>
+      <span class="marquee-item">Beauty & Salons</span>
+      <span class="marquee-item">Education</span>
+      <span class="marquee-item">Print & Design</span>
+      <span class="marquee-item">Bakeries & Catering</span>
+      <span class="marquee-item">Hardware & Building</span>
+      <span class="marquee-item">Food & Drink</span>
+      <span class="marquee-item">Shopping & Retail</span>
+      <span class="marquee-item">Hotels & Lodging</span>
+      <span class="marquee-item">Health & Wellness</span>
+      <span class="marquee-item">Finance & Banking</span>
+      <span class="marquee-item">Automotive Services</span>
+      <span class="marquee-item">Beauty & Salons</span>
+      <span class="marquee-item">Education</span>
+      <span class="marquee-item">Print & Design</span>
+      <span class="marquee-item">Bakeries & Catering</span>
+      <span class="marquee-item">Hardware & Building</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CATEGORY SWIPER
+  ═══════════════════════════════════════ -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="reveal">
+          <span class="section-label">Explore by Category</span>
+          <h2 class="section-title">What are you looking for?</h2>
+          <p class="section-sub">Browse businesses across all sectors of Francistown's vibrant economy.</p>
+        </div>
+        <div class="swiper-controls">
+          <button class="cat-prev" aria-label="Previous">&#8592;</button>
+          <button class="cat-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px;">
+        <div class="swiper cat-swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Food+%26+Drink" class="cat-card">
+                <img src="https://picsum.photos/seed/africafood/600/400" alt="Food & Drink" loading="lazy" onerror="this.style.background='#e8572a22';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">🍽️</span>
+                  <span class="cat-card-name">Food & Drink</span>
+                  <span class="cat-card-count">Restaurants · Takeaways · Bakeries</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Shopping" class="cat-card">
+                <img src="https://picsum.photos/seed/africashop/600/400" alt="Shopping" loading="lazy" onerror="this.style.background='#E8C42A22';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">🛍️</span>
+                  <span class="cat-card-name">Shopping</span>
+                  <span class="cat-card-count">Supermarkets · Boutiques · Markets</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Hotels+%26+Lodging" class="cat-card">
+                <img src="https://picsum.photos/seed/africahotel/600/400" alt="Hotels & Lodging" loading="lazy" onerror="this.style.background='#4A7C5922';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">🏨</span>
+                  <span class="cat-card-name">Hotels & Lodging</span>
+                  <span class="cat-card-count">Hotels · Lodges · Guest Houses</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Health" class="cat-card">
+                <img src="https://picsum.photos/seed/africahealth/600/400" alt="Health" loading="lazy" onerror="this.style.background='#5B8FA822';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">🏥</span>
+                  <span class="cat-card-name">Health</span>
+                  <span class="cat-card-count">Clinics · Pharmacies · Wellness</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Finance" class="cat-card">
+                <img src="https://picsum.photos/seed/africafinance/600/400" alt="Finance" loading="lazy" onerror="this.style.background='#1A619822';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">🏦</span>
+                  <span class="cat-card-name">Finance</span>
+                  <span class="cat-card-count">Banks · Insurance · Investments</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Automotive" class="cat-card">
+                <img src="https://picsum.photos/seed/africaauto/600/400" alt="Automotive" loading="lazy" onerror="this.style.background='#6B422622';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">🚗</span>
+                  <span class="cat-card-name">Automotive</span>
+                  <span class="cat-card-count">Spares · Tyres · Car Wash</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Beauty+%26+Wellness" class="cat-card">
+                <img src="https://picsum.photos/seed/africabeauty/600/400" alt="Beauty & Wellness" loading="lazy" onerror="this.style.background='#e91e8c22';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">💇</span>
+                  <span class="cat-card-name">Beauty & Wellness</span>
+                  <span class="cat-card-count">Salons · Spas · Nail Studios</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="pages/directory.html?cat=Education" class="cat-card">
+                <img src="https://picsum.photos/seed/africaedu/600/400" alt="Education" loading="lazy" onerror="this.style.background='#FF572222';this.src=''" />
+                <div class="cat-card-content">
+                  <span class="cat-card-icon">📚</span>
+                  <span class="cat-card-name">Education</span>
+                  <span class="cat-card-count">Schools · Tutoring · Training</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FEATURED LISTINGS (short preview)
+  ═══════════════════════════════════════ -->
+  <main>
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div>
+          <span class="section-label">Featured Listings</span>
+          <h2 class="section-title">Popular in Francistown</h2>
+          <p class="section-sub">Trusted businesses used by thousands of residents every day.</p>
+        </div>
+        <a href="pages/directory.html" class="btn btn-outline-dark">View all listings →</a>
+      </div>
+
+      <!-- Business Grid (limited to 6 on homepage) -->
+      <div class="biz-grid stagger" id="directory-grid" aria-label="Featured business listings">
+        <div id="empty-state" class="empty-state" role="status">
+          <div class="empty-icon" aria-hidden="true">🔍</div>
+          <h4>No businesses found</h4>
+          <p>Try a different search term or category.</p>
+        </div>
+      </div>
+
+      <!-- View All CTA -->
+      <div style="text-align:center; padding-bottom: 32px; margin-top: -24px;">
+        <a href="pages/directory.html" class="btn btn-primary btn-lg">
+          Browse all 27 businesses
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       STATS BAND
+  ═══════════════════════════════════════ -->
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <span class="stat-number" data-count="27">0</span>
+          <span class="stat-lbl">Businesses Listed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="10">0</span>
+          <span class="stat-lbl">Categories</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="100" data-suffix="%">0</span>
+          <span class="stat-lbl">Free to Use</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="1897">0</span>
+          <span class="stat-lbl">Est. Francistown</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FEATURES / WHY US
+  ═══════════════════════════════════════ -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="section-header reveal" style="padding-top:0">
+        <div>
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title">Everything you need, in one hub</h2>
+        </div>
+      </div>
+      <div class="features-grid stagger" style="margin-top:32px">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h4>Instant Search</h4>
+          <p>Find any business in Francistown by name, category, or address with live real-time search filtering.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h4>Local Focus</h4>
+          <p>Every listing is verified and relevant to Francistown — from well-known chains to hidden micro-businesses.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4>Ratings & Reviews</h4>
+          <p>Honest community ratings help you choose the best services and restaurants every time.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h4>Analytics Reports</h4>
+          <p>Explore detailed analytics on business categories, ratings, and trends across Francistown.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <h4>Download Data</h4>
+          <p>Export the full business directory as a CSV or PDF file for offline use or research purposes.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h4>Mobile Friendly</h4>
+          <p>Designed to work beautifully on any phone, tablet, or desktop with smooth responsive layouts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA SECTION
+  ═══════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2>Is your business listed?</h2>
+        <p>Join the Francistown Business Hub for free. Get discovered by thousands of residents and visitors searching for your services every day.</p>
+        <div class="cta-actions">
+          <a href="pages/list-business.html" class="btn btn-outline btn-lg">List Your Business Free →</a>
+          <a href="pages/directory.html" class="btn btn-lg" style="background:rgba(255,255,255,0.18);color:#fff;border:2px solid rgba(255,255,255,0.4)">Browse Directory</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="footer-brand-logo">
+              <img src="images/ftown-hub-logo.png" alt="Francistown Business Hub" />
+            </div>
+            Francistown Business Hub
+          </div>
+          <p class="footer-desc">
+            Home to all micro and macro businesses in Francistown, Botswana — helping residents and visitors find trusted services since 2024.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="WhatsApp">W</a>
+            <a href="#" aria-label="Instagram">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/directory.html">Directory</a></li>
+            <li><a href="pages/analytics.html">Analytics</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/list-business.html">List a Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Categories</h5>
+          <ul>
+            <li><a href="pages/directory.html?cat=Food+%26+Drink">Food & Drink</a></li>
+            <li><a href="pages/directory.html?cat=Shopping">Shopping</a></li>
+            <li><a href="pages/directory.html?cat=Health">Health</a></li>
+            <li><a href="pages/directory.html?cat=Finance">Finance</a></li>
+            <li><a href="pages/directory.html?cat=Automotive">Automotive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="pages/list-business.html">List a Business</a></li>
+            <li><a href="pages/feedback.html">Leave a Review</a></li>
+            <li><a href="pages/feedback.html">Report an Error</a></li>
+            <li><a href="pages/analytics.html">Business Reports</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Francistown Business Hub — Home to all micro / macro businesses. 🇧🇼 Botswana</span>
+        <a href="pages/list-business.html">List your business free →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="biz-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <p id="modal-cat" style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-accent);margin-bottom:4px;font-family:var(--font-display)"></p>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-thumb-placeholder" id="modal-thumb" aria-hidden="true"></div>
+        <p id="modal-long-desc" style="font-size:0.88rem;color:var(--clr-muted);line-height:1.75;"></p>
+        <div class="modal-info-grid">
+          <div class="modal-info-item"><label>Address</label><p id="modal-addr"></p></div>
+          <div class="modal-info-item"><label>Phone</label><p id="modal-phone"></p></div>
+          <div class="modal-info-item"><label>Opening Hours</label><p id="modal-hours"></p></div>
+          <div class="modal-info-item"><label>Status</label><p><span id="modal-status" class="card-open-badge" style="position:static;font-size:0.75rem;padding:4px 12px;"></span></p></div>
+          <div class="modal-info-item" style="grid-column:1/-1"><label>Rating</label><p id="modal-rating" style="color:var(--clr-accent);font-family:var(--font-display);font-weight:600;"></p></div>
+          <div class="modal-info-item" style="grid-column:1/-1;display:none" id="modal-website-wrap"><label>Website</label><a id="modal-website" style="font-size:0.88rem;color:var(--clr-accent);" target="_blank" rel="noopener"></a></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-sm" onclick="closeModal()">Close</button>
+        <a href="pages/feedback.html" class="btn btn-outline-dark btn-sm">Leave a Review</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

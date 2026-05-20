@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse all local businesses in Francistown, Botswana — search, filter by category, and download the directory." />
+  <title>Business Directory | Francistown Business Hub</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <div class="brand-logo">
+          <img src="../images/ftown-hub-logo.png" alt="Francistown Business Hub" />
+        </div>
+        <div class="brand-name">
+          Francistown Business Hub
+          <span>Home to all micro / macro businesses</span>
+        </div>
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="about.html">About</a>
+        <a href="list-business.html" class="navbar-cta">List Your Business</a>
+      </div>
+      <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="dir-title">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>Directory</span>
+      </nav>
+      <h1 id="dir-title">Business Directory</h1>
+      <p>Browse all <strong id="stat-total" style="color:var(--clr-accent)">—</strong> listed businesses across Francistown. Search, filter by category, or download the full list.</p>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD BAR -->
+  <div class="download-bar">
+    <div class="container">
+      <div class="download-bar-inner">
+        <div class="download-bar-text">
+          <h4>Download the Directory</h4>
+          <p>Export business names, contacts, and details for offline use or research.</p>
+        </div>
+        <div class="download-btns">
+          <button class="btn btn-download-csv btn-sm" onclick="downloadCSV()">Download CSV</button>
+          <button class="btn btn-download-pdf btn-sm" onclick="downloadPDF()">Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY SEARCH BAR -->
+  <div class="search-bar" role="search" aria-label="Search and filter businesses">
+    <div class="container">
+      <div class="search-bar-inner">
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="search-input" placeholder="Search by name, category, or address…" aria-label="Search businesses" />
+        </div>
+        <select class="filter-sel" id="sort-select" aria-label="Sort businesses">
+          <option value="default">Sort: Default</option>
+          <option value="name">Sort: A–Z</option>
+          <option value="rating">Sort: Top Rated</option>
+          <option value="open">Sort: Open First</option>
+        </select>
+        <span class="results-label" id="results-count" aria-live="polite">— results</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+
+      <!-- Category Filters -->
+      <div class="pill-row" id="cat-pills" role="group" aria-label="Filter by category"></div>
+
+      <!-- Business Grid -->
+      <div class="biz-grid" id="directory-grid" aria-label="Business listings">
+        <div id="empty-state" class="empty-state" role="status">
+          <div class="empty-icon" aria-hidden="true">🔍</div>
+          <h4>No businesses found</h4>
+          <p>Try a different search term or select a different category.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><div class="footer-brand-logo"><img src="../images/ftown-hub-logo.png" alt="Francistown Business Hub" /></div>Francistown Business Hub</div>
+          <p class="footer-desc">Connecting Francistown residents with the businesses they need, every day.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="WhatsApp">W</a>
+            <a href="#" aria-label="Instagram">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Categories</h5>
+          <ul>
+            <li><a href="directory.html?cat=Food+%26+Drink">Food & Drink</a></li>
+            <li><a href="directory.html?cat=Shopping">Shopping</a></li>
+            <li><a href="directory.html?cat=Health">Health</a></li>
+            <li><a href="directory.html?cat=Finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <ul>
+            <li><a href="#" onclick="downloadCSV();return false;">Download CSV</a></li>
+            <li><a href="#" onclick="downloadPDF();return false;">Download PDF</a></li>
+            <li><a href="analytics.html">View Analytics</a></li>
+            <li><a href="list-business.html">List a Business</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Francistown Business Hub — Home to all micro / macro businesses. 🇧🇼</span>
+        <a href="list-business.html">List your business free →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="biz-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <p id="modal-cat" style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-accent);margin-bottom:4px;font-family:var(--font-display)"></p>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-thumb-placeholder" id="modal-thumb" aria-hidden="true"></div>
+        <p id="modal-long-desc" style="font-size:0.88rem;color:var(--clr-muted);line-height:1.75;"></p>
+        <div class="modal-info-grid">
+          <div class="modal-info-item"><label>Address</label><p id="modal-addr"></p></div>
+          <div class="modal-info-item"><label>Phone</label><p id="modal-phone"></p></div>
+          <div class="modal-info-item"><label>Opening Hours</label><p id="modal-hours"></p></div>
+          <div class="modal-info-item"><label>Status</label><p><span id="modal-status" class="card-open-badge" style="position:static;font-size:0.75rem;padding:4px 12px;"></span></p></div>
+          <div class="modal-info-item" style="grid-column:1/-1"><label>Rating</label><p id="modal-rating" style="color:var(--clr-accent);font-family:var(--font-display);font-weight:600;"></p></div>
+          <div class="modal-info-item" style="grid-column:1/-1;display:none" id="modal-website-wrap"><label>Website</label><a id="modal-website" style="font-size:0.88rem;color:var(--clr-accent);" target="_blank" rel="noopener"></a></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-sm" onclick="closeModal()">Close</button>
+        <a href="feedback.html" class="btn btn-outline-dark btn-sm">Leave a Review</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jsPDF for PDF download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

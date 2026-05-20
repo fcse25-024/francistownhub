@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="List your business on Francistown Business Hub — free business listings for micro and macro businesses in Francistown, Botswana." />
+  <title>List Your Business | Francistown Business Hub</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .step-card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      transition: all var(--transition-slow);
+    }
+    .step-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--clr-white);
+      margin: 0 auto 16px;
+    }
+    .step-card h4 { font-size: 0.95rem; margin-bottom: 8px; }
+    .step-card p { font-size: 0.82rem; color: var(--clr-muted); line-height: 1.6; }
+    .hero-img-strip {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      margin: 48px 0;
+    }
+    .hero-img-strip img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-img-strip::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, rgba(13,17,23,0.75) 0%, rgba(232,114,42,0.4) 100%); border-radius:var(--radius-xl); }
+    .hero-img-strip-content { position:absolute; inset:0; z-index:1; display:flex; align-items:center; padding:40px; }
+    .hero-img-strip-content h2 { color:#fff; font-size:clamp(1.4rem,3vw,2rem); margin-bottom:10px; }
+    .hero-img-strip-content p { color:rgba(255,255,255,0.75); font-size:0.95rem; max-width:420px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <div class="brand-logo">
+          <img src="../images/ftown-hub-logo.png" alt="Francistown Business Hub" />
+        </div>
+        <div class="brand-name">
+          Francistown Business Hub
+          <span>Home to all micro / macro businesses</span>
+        </div>
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="about.html">About</a>
+        <a href="list-business.html" class="navbar-cta">List Your Business</a>
+      </div>
+      <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="list-title">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>List Your Business</span>
+      </nav>
+      <h1 id="list-title">List Your Business — It's Free</h1>
+      <p>Join Francistown's most comprehensive business directory. Get discovered by thousands of local residents and visitors every day.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+
+      <!-- BENEFITS -->
+      <div class="section-header reveal" style="padding-top: 56px;">
+        <div>
+          <span class="section-label">Why List With Us</span>
+          <h2 class="section-title">Grow your business visibility</h2>
+          <p class="section-sub">Whether you run a micro business from home or a large establishment, you deserve to be found.</p>
+        </div>
+      </div>
+      <div class="list-biz-benefits stagger">
+        <div class="benefit-card">
+          <div class="b-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h4>Get Discovered</h4>
+          <p>Thousands of Francistown residents search for local businesses every day. Be where they're looking.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4>Completely Free</h4>
+          <p>No listing fees, no subscriptions, no hidden costs. Getting listed on Francistown Business Hub is always free.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4>Build Reputation</h4>
+          <p>Customers can leave reviews and ratings, helping you build trust and credibility in the community.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h4>Analytics Insights</h4>
+          <p>Your business appears in our analytics reports, showing the community the diversity of Francistown's economy.</p>
+        </div>
+      </div>
+
+      <!-- IMAGE STRIP -->
+      <div class="hero-img-strip reveal">
+        <img src="https://picsum.photos/seed/francistownmarket/1200/400" alt="Francistown marketplace" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#0d1117,#e8722a)'" />
+        <div class="hero-img-strip-content">
+          <div>
+            <h2>Francistown's micro businesses<br>are the backbone of our economy</h2>
+            <p>From corner general dealers to home catering businesses — every enterprise matters and deserves to be visible.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <div class="section-header reveal" style="padding-top: 0;">
+        <div>
+          <span class="section-label">How It Works</span>
+          <h2 class="section-title">Simple 3-step process</h2>
+        </div>
+      </div>
+      <div class="step-grid stagger">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4>Fill the Form</h4>
+          <p>Complete the listing request form below with your business name, category, contact details, and a short description.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h4>We Review</h4>
+          <p>Our team reviews your submission within 3–5 business days to ensure accuracy and quality.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4>Go Live!</h4>
+          <p>Your business goes live on the directory and becomes discoverable by thousands of local residents immediately.</p>
+        </div>
+      </div>
+
+      <!-- FORM SECTION -->
+      <div class="form-section-layout" style="padding-top: 56px;">
+
+        <!-- FORM -->
+        <div class="reveal">
+          <h2 style="font-size:1.4rem;margin-bottom: 28px;">Submit Your Business Listing</h2>
+          <form id="listing-form" novalidate aria-label="List a business form" onsubmit="handleListingSubmit(event)">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lst-bname">Business Name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="lst-bname" name="bizName" class="form-control" placeholder="e.g. Kgosi Hair Salon" required maxlength="100" aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="lst-cat">Category <span class="req" aria-hidden="true">*</span></label>
+                <select id="lst-cat" name="category" class="form-control filter-sel" required style="height:44px;width:100%;border-radius:var(--radius-md);" aria-required="true">
+                  <option value="">Select category…</option>
+                  <option>Food & Drink</option>
+                  <option>Shopping</option>
+                  <option>Health</option>
+                  <option>Hotels & Lodging</option>
+                  <option>Finance</option>
+                  <option>Automotive</option>
+                  <option>Beauty & Wellness</option>
+                  <option>Education</option>
+                  <option>Electronics & Tech</option>
+                  <option>Events & Catering</option>
+                  <option>Hardware</option>
+                  <option>Services</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lst-addr">Physical Address <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="lst-addr" name="address" class="form-control" placeholder="e.g. Blue Jacket St, Francistown" required aria-required="true" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lst-phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="lst-phone" name="phone" class="form-control" placeholder="+267 241 0000" required pattern="[\+]?[0-9\s\-]{7,15}" aria-required="true" />
+                <p class="form-hint">Include country code e.g. +267</p>
+              </div>
+              <div class="form-group">
+                <label for="lst-website">Website (optional)</label>
+                <input type="url" id="lst-website" name="website" class="form-control" placeholder="https://www.yourbusiness.co.bw" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lst-hours">Opening Hours <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="lst-hours" name="hours" class="form-control" placeholder="e.g. Mon–Fri 08:00–17:00, Sat 09:00–13:00" required aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="lst-desc">Business Description <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="lst-desc" name="description" class="form-control" placeholder="Describe your business, services offered, and what makes you unique. (30–500 characters)" required minlength="30" maxlength="500" rows="4" aria-required="true"></textarea>
+              <p class="form-hint">30–500 characters</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lst-contact">Your Name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="lst-contact" name="contactName" class="form-control" placeholder="Business owner or manager name" required aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="lst-email">Contact Email <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="lst-email" name="contactEmail" class="form-control" placeholder="your@email.com" required aria-required="true" />
+              </div>
+            </div>
+
+            <div id="listing-success" class="success-banner" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-top:8px;width:100%">
+              Submit Listing Request →
+            </button>
+            <p class="form-hint" style="text-align:center;margin-top:12px;">We review all submissions within 3–5 business days.</p>
+          </form>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="reveal-right" aria-label="Listing information">
+          <div class="sidebar-card" style="margin-bottom:20px; background:linear-gradient(135deg,var(--clr-primary),var(--clr-navy)); position:relative; overflow:hidden;">
+            <div style="position:absolute;inset:0;background-image:url('https://picsum.photos/seed/sidebarbiz/600/400');background-size:cover;opacity:0.08;"></div>
+            <div style="position:relative;z-index:1;">
+              <h4 style="color:#fff;">📬 Contact Us</h4>
+              <p style="color:rgba(255,255,255,0.6);">Have questions about the listing process? Reach out through any of the channels below.</p>
+              <div class="contact-list" style="margin-top:16px;">
+                <div class="contact-item">
+                  <div class="ci-icon">✉️</div>
+                  <div style="color:rgba(255,255,255,0.75);font-size:0.83rem;">info@francistown-biz.co.bw</div>
+                </div>
+                <div class="contact-item">
+                  <div class="ci-icon">📞</div>
+                  <div style="color:rgba(255,255,255,0.75);font-size:0.83rem;">+267 700 00000</div>
+                </div>
+                <div class="contact-item">
+                  <div class="ci-icon">📍</div>
+                  <div style="color:rgba(255,255,255,0.75);font-size:0.83rem;">Francistown, NE District, Botswana</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card" style="margin-bottom:20px;">
+            <h4>💡 Listing Guidelines</h4>
+            <p>To keep the directory accurate and useful:</p>
+            <ul style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Only list businesses physically in Francistown</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Provide accurate phone numbers and hours</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Micro businesses are very welcome</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ No spam or misleading content</li>
+              <li style="font-size:0.83rem;color:var(--clr-muted);">✓ Home businesses are accepted</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>⏱ Response Time</h4>
+            <p>New listing requests are reviewed within <strong>3–5 business days</strong>. Once approved, your business goes live immediately.</p>
+            <a href="directory.html" class="btn btn-outline-dark btn-sm" style="margin-top:16px;width:100%;justify-content:center;">Browse the Directory →</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><div class="footer-brand-logo"><img src="../images/ftown-hub-logo.png" alt="Francistown Business Hub" /></div>Francistown Business Hub</div>
+          <p class="footer-desc">Connecting Francistown residents with the businesses they need, every day.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="WhatsApp">W</a>
+            <a href="#" aria-label="Instagram">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Categories</h5>
+          <ul>
+            <li><a href="directory.html?cat=Food+%26+Drink">Food & Drink</a></li>
+            <li><a href="directory.html?cat=Shopping">Shopping</a></li>
+            <li><a href="directory.html?cat=Health">Health</a></li>
+            <li><a href="directory.html?cat=Finance">Finance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="list-business.html">List a Business</a></li>
+            <li><a href="feedback.html">Leave a Review</a></li>
+            <li><a href="feedback.html">Report an Error</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Francistown Business Hub — Home to all micro / macro businesses. 🇧🇼</span>
+        <a href="list-business.html">List your business free →</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function handleListingSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const btn = form.querySelector("button[type=submit]");
+      btn.textContent = "Submitting…"; btn.disabled = true;
+      setTimeout(() => {
+        form.reset(); btn.textContent = "Submit Listing Request →"; btn.disabled = false;
+        const el = document.getElementById("listing-success");
+        el.style.display = "flex";
+        el.textContent = "✓ Your listing request has been submitted! We'll review it within 3–5 business days.";
+        showToast("✓ Listing submitted successfully!", "success");
+        setTimeout(() => el.style.display = "none", 7000);
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
